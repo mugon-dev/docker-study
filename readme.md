@@ -2,6 +2,9 @@
 ```
 docker build --progress=plain -t mugon/nodejs ./
 docker run -p 5000:8080 mugon/nodejs 
+
+// volume를 이용하여 실행
+docker run -d -p 5050:8080 -v /usr/src/app/node_modules -v $(pwd):/usr/src/app mugon/nodejs
 ```
 
 # dockerfile
