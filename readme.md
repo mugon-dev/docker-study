@@ -1,22 +1,10 @@
+# docker-compose
+두개 이상의 컨테이너를 연결하기 위해 사용
+
 # build
-### 현재폴더의 Dockerfile을 읽어 빌드
 ```
-docker build ./
-```
+docker compose up
 
-# run
-```
-docker run -it [빌드된 docker image 이름]
-```
-
-# -t 옵션으로 네이밍
-## 규칙
-```
--t 도커아이디/프로젝트이름:버전
-```
-
-# build, run with name
-```
-docker build -t mugon/hello:latest ./
-docker run -it mugon/hello      
+//rebuild
+docker compose up --build
 ```
