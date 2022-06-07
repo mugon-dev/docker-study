@@ -1,8 +1,9 @@
-# 베이스 이미지를 명시해 준다
-FROM alpine
+FROM node:alpine as builder
+WORKDIR /usr/src/app
+COPY package.json .
+RUN npm install
+COPY ./ ./
+RUN npm run build
 
-# 추가적으로 필요한 파일들을 다운로드 받는다.
-# RUN command
-
-# 컨테이너 시작시 실행 될 명령어를 명시해 준다
-CMD ["echo","hello"]
+FROM nginx
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
